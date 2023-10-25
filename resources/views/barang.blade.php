@@ -958,6 +958,8 @@
             </div>
             <div class="modal-body">
               <!--isi form-->
+              <form action="/barang" class="" method="post">
+                @csrf
               <div class="form-group">
                     <label for="exampleInputEmail1">ID Barang</label>
                     <input type="text" name="id_barang" class="form-control" id="exampleInputEmail1" placeholder="Masukan ID Barang">
@@ -997,14 +999,15 @@
                   <div class="form-group mb-0">
                     
                   </div>
-                
+              
                 <!--/isi form-->
             </div>
             <div class="modal-footer justify-content-between">
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">S i m p a n</button>
+              <button type="submit" class="btn btn-primary">S i m p a n</button>
             </div>
           </div>
+          </form>
       
 <!-- /pop up untuk menambah data -->
 

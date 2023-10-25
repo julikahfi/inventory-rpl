@@ -27,6 +27,9 @@ Route::get('/barang', [barangcontroller::class,'barang']);
 Route::get('/transaksi', [transaksicontroller::class,'transaksi']);
 Route::get('/statusbarang', [statusbarangcontroller::class,'statusbarang']);
 Route::post('/karyawan', [karyawancontroller::class,'store']);
+Route::post('/barang', [barangcontroller::class,'store']);
+Route::post('/transaksi', [transaksicontroller::class,'store']);
+Route::post('/statusbarang', [statusbarangcontroller::class,'store']);
 
 
 

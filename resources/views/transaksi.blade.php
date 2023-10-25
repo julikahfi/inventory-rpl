@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Dashboard</title>
+  <title>Transaksi | Dashboard</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -957,13 +957,15 @@
             </div>
             <div class="modal-body">
               <!--isi form-->
+              <form action="/transaksi" class="" method="post">
+                @csrf
               <div class="form-group">
                     <label for="exampleInputEmail1">ID Transaksi</label>
                     <input type="text" name="id_transaksi" class="form-control" id="exampleInputEmail1" placeholder="Masukan ID Transaksi">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Tanggal Transaksi</label>
-                    <input type="date" name="tgl_transaksi" class="form-control" id="exampleInputPassword1" placeholder="Masukan tanggal transaksi">
+                    <input type="date" name="tanggal_transaksi" class="form-control" id="exampleInputPassword1" placeholder="Masukan tanggal transaksi">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Jenis Transaksi</label>
@@ -995,10 +997,10 @@
             </div>
             <div class="modal-footer justify-content-between">
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">S i m p a n</button>
+              <button type="submit" class="btn btn-primary">S i m p a n</button>
             </div>
           </div>
-      
+      </form>
 <!-- /pop up untuk menambah data -->
 
 <!-- jQuery -->
