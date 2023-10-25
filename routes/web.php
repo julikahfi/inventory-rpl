@@ -19,7 +19,7 @@ use App\Http\Controllers\transaksicontroller;
 */
 
 Route::get('/', function () {
-    return view('input_karyawan');
+    return view('editkaryawan');
 });
 
 Route::get('/karyawan', [karyawancontroller::class,'karyawan']);

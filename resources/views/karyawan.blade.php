@@ -917,11 +917,10 @@
                     <td>
                       <div class="btn-group">
                         
-                        <button type="button" class="btn btn-info btn-flat">
+                        <button data-target="#modal-primary" type="button" class="btn btn-info btn-flat" data-toggle="modal">
                         <i class="fas fa-edit"></i>
                         </button>
-                        <button type="button" class="btn btn-danger btn-flat">
-                          
+                        <button type="button" class="btn btn-danger btn-flat"> 
                           <i class="far fa-trash-alt"></i>
                         </button>
                         
@@ -943,14 +942,13 @@
               </div>
               <!-- /.card-body -->
             </div>
-
 <!-- pop up untuk menambah data -->
             
 <div class="modal fade" id="modal-default">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h3 class="modal-title">MASUKAN DATA STATUS BARANG</h3>
+              <h3 class="modal-title">MASUKAN DATA KARYAWAN</h3>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -1000,7 +998,26 @@
       
 <!-- /pop up untuk menambah data -->
 
-            
+ <!-- pop up untuk mengedit data -->
+ <div class="modal fade" id="modal-primary">
+        <div class="modal-dialog">
+          <div class="modal-content bg-primary">
+            <div class="modal-header">
+              <h4 class="modal-title">Primary Modal</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>One fine body&hellip;</p>
+            </div>
+            <div class="modal-footer justify-content-between">
+              <button type="button" class="btn btn-outline-light" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-outline-light">Save changes</button>
+            </div>
+          </div>
+  <!-- /pop up untuk mengedit data -->
+
 <!-- jQuery -->
 <script src="{{ asset('AdminLTE') }}/plugins/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
@@ -1050,5 +1067,6 @@
     });
   });
 </script>
+
 </body>
 </html>
