@@ -854,7 +854,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Data Barang</h1>
+            <h1 class="m-0">Data Status Barang</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -871,7 +871,6 @@
     <div class="card">
               <div class="card-header">
                 <h3 class="card-title">DataTable with default features</h3>
-
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -891,28 +890,26 @@
                   Tambah Data
                 </button>-->
                     </div></div></div><div class="row"><div class="col-sm-12"><table id="example1" class="table table-bordered table-striped dataTable dtr-inline" aria-describedby="example1_info">
-                  <thead>
+                  
+                <thead>
                   <tr>
-                    <th class="sorting sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">ID Barang</th>
-                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Nama Barang</th>
-                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Jenis Barang</th>
-                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Status Barang</th>
-                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Jumlah Barang</th>
-                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Harga Beli</th>
-                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Tanggal Beli</th>
-                  </tr>  
+                    <th class="sorting sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">ID Status</th>
+                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">ID Barang</th>
+                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Jummlah Bagus</th>
+                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Jumlah Rusak Ringan</th>
+                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Jumlah Rusak Berat</th>
+                  </tr>
                   </thead>
                   <tbody>
                   
                   <tr class="odd">
-                  @foreach($barang as $barang)
-                    <td>{{$barang->id_barang}}</td>
-                    <td>{{$barang->nama_barang}}</td>
-                    <td>{{$barang->jenis_barang}}</td>
-                    <td>{{$barang->status_barang}}</td>
-                    <td>{{$barang->jumlah_barang}}</td>
-                    <td>{{$barang->harga_beli}}</td>
-                    <td>{{$barang->tanggal_beli}}</td>
+                  @foreach($statusbarang as $statusbarang)
+                    <td>{{$statusbarang->id_status}}</td>
+                    <td>{{$statusbarang->id_barang}}</td>
+                    <td>{{$statusbarang->jml_bagus}}</td>
+                    <td>{{$statusbarang->jml_rusak_ringan}}</td>
+                    <td>{{$statusbarang->jml_rusak_berat}}</td>
+                 
                     <td>
                       <div class="btn-group">
                         
@@ -926,32 +923,30 @@
                         
                       </div>
                     </td>
-
                   </tr>
                   @endforeach
                   </tbody>
                   <tfoot>
                   <tr>
-                    <th class="sorting sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">ID Barang</th>
-                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Nama Barang</th>
-                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Jenis Barang</th>
-                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Status Barang</th>
-                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Jumlah Barang</th>
-                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Harga Beli</th>
-                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Tanggal Beli</th>
+                    <th class="sorting sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">ID Status</th>
+                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">ID Barang</th>
+                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Jummlah Bagus</th>
+                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Jumlah Rusak Ringan</th>
+                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Jumlah Rusak Berat</th>
                   </tr>
                   </tfoot>
                 </table></div></div><div class="row"><div class="col-sm-12 col-md-5"><div class="dataTables_info" id="example1_info" role="status" aria-live="polite">Showing 1 to 10 of 57 entries</div></div><div class="col-sm-12 col-md-7"><div class="dataTables_paginate paging_simple_numbers" id="example1_paginate"><ul class="pagination"><li class="paginate_button page-item previous disabled" id="example1_previous"><a href="#" aria-controls="example1" data-dt-idx="0" tabindex="0" class="page-link">Previous</a></li><li class="paginate_button page-item active"><a href="#" aria-controls="example1" data-dt-idx="1" tabindex="0" class="page-link">1</a></li><li class="paginate_button page-item "><a href="#" aria-controls="example1" data-dt-idx="2" tabindex="0" class="page-link">2</a></li><li class="paginate_button page-item "><a href="#" aria-controls="example1" data-dt-idx="3" tabindex="0" class="page-link">3</a></li><li class="paginate_button page-item "><a href="#" aria-controls="example1" data-dt-idx="4" tabindex="0" class="page-link">4</a></li><li class="paginate_button page-item "><a href="#" aria-controls="example1" data-dt-idx="5" tabindex="0" class="page-link">5</a></li><li class="paginate_button page-item "><a href="#" aria-controls="example1" data-dt-idx="6" tabindex="0" class="page-link">6</a></li><li class="paginate_button page-item next" id="example1_next"><a href="#" aria-controls="example1" data-dt-idx="7" tabindex="0" class="page-link">Next</a></li></ul></div></div></div></div>
               </div>
               <!-- /.card-body -->
             </div>
+
             <!-- pop up untuk menambah data -->
             
             <div class="modal fade" id="modal-default">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h3 class="modal-title">MASUKAN DATA BARANG</h3>
+              <h3 class="modal-title">MASUKAN DATA STATUS BARANG</h3>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -959,40 +954,24 @@
             <div class="modal-body">
               <!--isi form-->
               <div class="form-group">
-                    <label for="exampleInputEmail1">ID Barang</label>
-                    <input type="text" name="id_barang" class="form-control" id="exampleInputEmail1" placeholder="Masukan ID Barang">
+                    <label for="exampleInputEmail1">ID Status</label>
+                    <input type="text" name="id_status" class="form-control" id="exampleInputEmail1" placeholder="Masukan ID Status">
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputPassword1">Nama Barang</label>
-                    <input type="text" name="nama_barang" class="form-control" id="exampleInputPassword1" placeholder="Masukan Nama Barang">
+                    <label for="exampleInputPassword1">ID Barang</label>
+                    <input type="text" name="id_barang" class="form-control" id="exampleInputPassword1" placeholder="Masukan ID Barang">
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputPassword1">Jenis Barang Bagus</label>
-                    <select class="form-control" name="jenis_barang">
-                          <option value="" hidden>--Masukan Jenis Barang bagus--</option>
-                          <option value="sarana">Sarana</option>
-                          <option value="prasarana">Prasarana</option>
-                          
-                        </select>
-
-                  </div>
-
-
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">Status Barang</label>
-                    <input type="text" name="status_barang" class="form-control" id="exampleInputPassword1" placeholder="Masukan Status Barang rusak ringan">
+                    <label for="exampleInputPassword1">Jumlah Barang Bagus</label>
+                    <input type="number" name="jml_bagus" class="form-control" id="exampleInputPassword1" placeholder="Masukan jumlah barang bagus">
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputPassword1">Jumlah Barang</label>
-                    <input type="number" name="jumlah_barang" class="form-control" id="exampleInputPassword1" placeholder="Masukan jumlah barang rusak berat">
+                    <label for="exampleInputPassword1">Jumlah Barang Rusak Ringan</label>
+                    <input type="number" name="jml_rusak_ringan" class="form-control" id="exampleInputPassword1" placeholder="Masukan jumlah barang rusak ringan">
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputPassword1">Harga Beli</label>
-                    <input type="number" name="harga_beli" class="form-control" id="exampleInputPassword1" placeholder="Masukan Harga Beli">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">Tanggal Beli</label>
-                    <input type="date" name="tanggal_beli" class="form-control" id="exampleInputPassword1" placeholder="Masukan Tanggal Beli">
+                    <label for="exampleInputPassword1">Jumlah Barang Rusak Berat</label>
+                    <input type="number" name="jml_rusak_berat" class="form-control" id="exampleInputPassword1" placeholder="Masukan jumlah barang rusak berat">
                   </div>
                   <div class="form-group mb-0">
                     
@@ -1042,6 +1021,5 @@
 <script src="{{ asset('AdminLTE') }}/dist/js/demo.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{ asset('AdminLTE') }}/dist/js/pages/dashboard.js"></script>
-
 </body>
 </html>

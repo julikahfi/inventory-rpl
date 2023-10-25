@@ -873,8 +873,24 @@
                 <h3 class="card-title">DataTable with default features</h3>
               </div>
               <!-- /.card-header -->
-              <div class="card-body">
-                <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4"><div class="row"><div class="col-sm-12 col-md-6"><div class="dt-buttons btn-group flex-wrap">               <button class="btn btn-secondary buttons-copy buttons-html5" tabindex="0" aria-controls="example1" type="button"><span>Copy</span></button> <button class="btn btn-secondary buttons-csv buttons-html5" tabindex="0" aria-controls="example1" type="button"><span>CSV</span></button> <button class="btn btn-secondary buttons-excel buttons-html5" tabindex="0" aria-controls="example1" type="button"><span>Excel</span></button> <button class="btn btn-secondary buttons-pdf buttons-html5" tabindex="0" aria-controls="example1" type="button"><span>PDF</span></button> <button class="btn btn-secondary buttons-print" tabindex="0" aria-controls="example1" type="button"><span>Print</span></button> <div class="btn-group"><button class="btn btn-secondary buttons-collection dropdown-toggle buttons-colvis" tabindex="0" aria-controls="example1" type="button" aria-haspopup="true"><span>Column visibility</span><span class="dt-down-arrow"></span></button></div> </div></div><div class="col-sm-12 col-md-6"><div id="example1_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control form-control-sm" placeholder="" aria-controls="example1"></label></div></div></div><div class="row"><div class="col-sm-12"><table id="example1" class="table table-bordered table-striped dataTable dtr-inline" aria-describedby="example1_info">
+              <<div class="card-body">
+                <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4"><div class="row">
+                  <div class="col-sm-12 col-md-6"><div class="dt-buttons btn-group flex-wrap">               
+                    <button class="btn btn-secondary buttons-copy buttons-html5" tabindex="0" aria-controls="example1" type="button"><span>Copy</span></button> <button class="btn btn-secondary buttons-csv buttons-html5" tabindex="0" aria-controls="example1" type="button"><span>CSV</span></button> 
+                    <button class="btn btn-secondary buttons-excel buttons-html5" tabindex="0" aria-controls="example1" type="button"><span>Excel</span></button> 
+                    <button class="btn btn-secondary buttons-pdf buttons-html5" tabindex="0" aria-controls="example1" type="button"><span>PDF</span></button> <button class="btn btn-secondary buttons-print" tabindex="0" aria-controls="example1" type="button"><span>Print</span></button> <div class="btn-group"><button class="btn btn-secondary buttons-collection dropdown-toggle buttons-colvis" tabindex="0" aria-controls="example1" type="button" aria-haspopup="true"><span>Column visibility</span><span class="dt-down-arrow"></span></button>
+                    
+                    </div> </div></div><div class="col-sm-12 col-md-6">
+                      <div id="example1_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control form-control-sm" placeholder="" aria-controls="example1"></label>
+                      
+                       <!--tombol tambah data -->
+                      
+                       <button data-target="#modal-default" data-toggle="modal" class="btn btn-secondary buttons-pdf buttons-html5" tabindex="0" aria-controls="example1" type="button"><span>Tambah Data</span></button>
+                <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-primary"> 
+                  Tambah Data
+                </button>-->
+                    </div></div></div><div class="row"><div class="col-sm-12"><table id="example1" class="table table-bordered table-striped dataTable dtr-inline" aria-describedby="example1_info">
+
                   <thead>
                   <tr>
                     <th class="sorting sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">ID Transaksi</th>
@@ -884,6 +900,7 @@
                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Jumlah</th>
                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">ID Karyawan</th>
                   </tr>
+                  
                   </thead>
                   <tbody>
                   
@@ -895,6 +912,19 @@
                     <td>{{$transaksi->id_barang}}</td>
                     <td>{{$transaksi->jumlah}}</td>
                     <td>{{$transaksi->id_karyawan}}</td>
+                    <td>
+                      <div class="btn-group">
+                        
+                        <button type="button" class="btn btn-info btn-flat">
+                        <i class="fas fa-edit"></i>
+                        </button>
+                        <button type="button" class="btn btn-danger btn-flat">
+                          
+                          <i class="far fa-trash-alt"></i>
+                        </button>
+                        
+                      </div>
+                    </td>
 
                   </tr>
                   @endforeach
@@ -914,6 +944,62 @@
               <!-- /.card-body -->
             </div>
 
+                        <!-- pop up untuk menambah data -->
+            
+                        <div class="modal fade" id="modal-default">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3 class="modal-title">MASUKAN DATA TRANSAKSI</h3>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <!--isi form-->
+              <div class="form-group">
+                    <label for="exampleInputEmail1">ID Transaksi</label>
+                    <input type="text" name="id_transaksi" class="form-control" id="exampleInputEmail1" placeholder="Masukan ID Transaksi">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Tanggal Transaksi</label>
+                    <input type="date" name="tgl_transaksi" class="form-control" id="exampleInputPassword1" placeholder="Masukan tanggal transaksi">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Jenis Transaksi</label>
+                    <select class="form-control" name="jenis_transaksi">
+                          <option value="" hidden>--Masukan Jenis Transaksi--</option>
+                          <option value="baru">Baru</option>
+                          <option value="pinjam">Pinjam</option>
+                          <option value="servis">Servis</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">ID Barang</label>
+                    <input type="text" name="id_barang" class="form-control" id="exampleInputPassword1" placeholder="Masukan ID Barang">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Jumlah</label>
+                    <input type="number" name="jumlah" class="form-control" id="exampleInputPassword1" placeholder="Masukan jumlah">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">ID Karyawan</label>
+                    <input type="text" name="id_karyawan" class="form-control" id="exampleInputPassword1" placeholder="Masukan ID Karyawan">
+                  </div>
+
+                  <div class="form-group mb-0">
+                    
+                  </div>
+                
+                <!--/isi form-->
+            </div>
+            <div class="modal-footer justify-content-between">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">S i m p a n</button>
+            </div>
+          </div>
+      
+<!-- /pop up untuk menambah data -->
 
 <!-- jQuery -->
 <script src="{{ asset('AdminLTE') }}/plugins/jquery/jquery.min.js"></script>

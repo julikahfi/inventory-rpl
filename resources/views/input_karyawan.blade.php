@@ -376,7 +376,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="pages/UI/modals.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Modals & Alerts</p>
                 </a>
@@ -854,7 +854,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Data Barang</h1>
+            <h1 class="m-0">Data Karyawan</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -871,142 +871,80 @@
     <div class="card">
               <div class="card-header">
                 <h3 class="card-title">DataTable with default features</h3>
-
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4"><div class="row">
-                  <div class="col-sm-12 col-md-6"><div class="dt-buttons btn-group flex-wrap">               
-                    <button class="btn btn-secondary buttons-copy buttons-html5" tabindex="0" aria-controls="example1" type="button"><span>Copy</span></button> <button class="btn btn-secondary buttons-csv buttons-html5" tabindex="0" aria-controls="example1" type="button"><span>CSV</span></button> 
-                    <button class="btn btn-secondary buttons-excel buttons-html5" tabindex="0" aria-controls="example1" type="button"><span>Excel</span></button> 
-                    <button class="btn btn-secondary buttons-pdf buttons-html5" tabindex="0" aria-controls="example1" type="button"><span>PDF</span></button> <button class="btn btn-secondary buttons-print" tabindex="0" aria-controls="example1" type="button"><span>Print</span></button> <div class="btn-group"><button class="btn btn-secondary buttons-collection dropdown-toggle buttons-colvis" tabindex="0" aria-controls="example1" type="button" aria-haspopup="true"><span>Column visibility</span><span class="dt-down-arrow"></span></button>
-                    
-                    </div> </div></div><div class="col-sm-12 col-md-6">
-                      <div id="example1_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control form-control-sm" placeholder="" aria-controls="example1"></label>
-                      
-                       <!--tombol tambah data -->
-                      
-                       <button data-target="#modal-default" data-toggle="modal" class="btn btn-secondary buttons-pdf buttons-html5" tabindex="0" aria-controls="example1" type="button"><span>Tambah Data</span></button>
-                <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-primary"> 
-                  Tambah Data
-                </button>-->
-                    </div></div></div><div class="row"><div class="col-sm-12"><table id="example1" class="table table-bordered table-striped dataTable dtr-inline" aria-describedby="example1_info">
-                  <thead>
-                  <tr>
-                    <th class="sorting sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">ID Barang</th>
-                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Nama Barang</th>
-                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Jenis Barang</th>
-                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Status Barang</th>
-                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Jumlah Barang</th>
-                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Harga Beli</th>
-                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Tanggal Beli</th>
-                  </tr>  
-                  </thead>
-                  <tbody>
-                  
-                  <tr class="odd">
-                  @foreach($barang as $barang)
-                    <td>{{$barang->id_barang}}</td>
-                    <td>{{$barang->nama_barang}}</td>
-                    <td>{{$barang->jenis_barang}}</td>
-                    <td>{{$barang->status_barang}}</td>
-                    <td>{{$barang->jumlah_barang}}</td>
-                    <td>{{$barang->harga_beli}}</td>
-                    <td>{{$barang->tanggal_beli}}</td>
-                    <td>
-                      <div class="btn-group">
-                        
-                        <button type="button" class="btn btn-info btn-flat">
-                        <i class="fas fa-edit"></i>
-                        </button>
-                        <button type="button" class="btn btn-danger btn-flat">
-                          
-                          <i class="far fa-trash-alt"></i>
-                        </button>
-                        
-                      </div>
-                    </td>
+              <div class="content-wrapper" style="min-height: 2171.52px;">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Validation</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Validation</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
 
-                  </tr>
-                  @endforeach
-                  </tbody>
-                  <tfoot>
-                  <tr>
-                    <th class="sorting sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">ID Barang</th>
-                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Nama Barang</th>
-                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Jenis Barang</th>
-                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Status Barang</th>
-                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Jumlah Barang</th>
-                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Harga Beli</th>
-                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Tanggal Beli</th>
-                  </tr>
-                  </tfoot>
-                </table></div></div><div class="row"><div class="col-sm-12 col-md-5"><div class="dataTables_info" id="example1_info" role="status" aria-live="polite">Showing 1 to 10 of 57 entries</div></div><div class="col-sm-12 col-md-7"><div class="dataTables_paginate paging_simple_numbers" id="example1_paginate"><ul class="pagination"><li class="paginate_button page-item previous disabled" id="example1_previous"><a href="#" aria-controls="example1" data-dt-idx="0" tabindex="0" class="page-link">Previous</a></li><li class="paginate_button page-item active"><a href="#" aria-controls="example1" data-dt-idx="1" tabindex="0" class="page-link">1</a></li><li class="paginate_button page-item "><a href="#" aria-controls="example1" data-dt-idx="2" tabindex="0" class="page-link">2</a></li><li class="paginate_button page-item "><a href="#" aria-controls="example1" data-dt-idx="3" tabindex="0" class="page-link">3</a></li><li class="paginate_button page-item "><a href="#" aria-controls="example1" data-dt-idx="4" tabindex="0" class="page-link">4</a></li><li class="paginate_button page-item "><a href="#" aria-controls="example1" data-dt-idx="5" tabindex="0" class="page-link">5</a></li><li class="paginate_button page-item "><a href="#" aria-controls="example1" data-dt-idx="6" tabindex="0" class="page-link">6</a></li><li class="paginate_button page-item next" id="example1_next"><a href="#" aria-controls="example1" data-dt-idx="7" tabindex="0" class="page-link">Next</a></li></ul></div></div></div></div>
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- left column -->
+          <div class="col-md-12">
+            <!-- jquery validation -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Quick Example <small>jQuery Validation</small></h3>
               </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- pop up untuk menambah data -->
-            
-            <div class="modal fade" id="modal-default">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h3 class="modal-title">MASUKAN DATA BARANG</h3>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <!--isi form-->
-              <div class="form-group">
-                    <label for="exampleInputEmail1">ID Barang</label>
-                    <input type="text" name="id_barang" class="form-control" id="exampleInputEmail1" placeholder="Masukan ID Barang">
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form id="quickForm" novalidate="novalidate">
+                <div class="card-body">
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputPassword1">Nama Barang</label>
-                    <input type="text" name="nama_barang" class="form-control" id="exampleInputPassword1" placeholder="Masukan Nama Barang">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">Jenis Barang Bagus</label>
-                    <select class="form-control" name="jenis_barang">
-                          <option value="" hidden>--Masukan Jenis Barang bagus--</option>
-                          <option value="sarana">Sarana</option>
-                          <option value="prasarana">Prasarana</option>
-                          
-                        </select>
-
-                  </div>
-
-
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">Status Barang</label>
-                    <input type="text" name="status_barang" class="form-control" id="exampleInputPassword1" placeholder="Masukan Status Barang rusak ringan">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">Jumlah Barang</label>
-                    <input type="number" name="jumlah_barang" class="form-control" id="exampleInputPassword1" placeholder="Masukan jumlah barang rusak berat">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">Harga Beli</label>
-                    <input type="number" name="harga_beli" class="form-control" id="exampleInputPassword1" placeholder="Masukan Harga Beli">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">Tanggal Beli</label>
-                    <input type="date" name="tanggal_beli" class="form-control" id="exampleInputPassword1" placeholder="Masukan Tanggal Beli">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
                   </div>
                   <div class="form-group mb-0">
-                    
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" name="terms" class="custom-control-input" id="exampleCheck1">
+                      <label class="custom-control-label" for="exampleCheck1">I agree to the <a href="#">terms of service</a>.</label>
+                    </div>
                   </div>
-                
-                <!--/isi form-->
+                </div>
+                <!-- /.card-body -->
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </form>
             </div>
-            <div class="modal-footer justify-content-between">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">S i m p a n</button>
+            <!-- /.card -->
             </div>
+          <!--/.col (left) -->
+          <!-- right column -->
+          <div class="col-md-6">
+
           </div>
-      
-<!-- /pop up untuk menambah data -->
+          <!--/.col (right) -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+              <!-- /.card-body -->
+            </div>
+
 
 <!-- jQuery -->
 <script src="{{ asset('AdminLTE') }}/plugins/jquery/jquery.min.js"></script>
@@ -1042,6 +980,5 @@
 <script src="{{ asset('AdminLTE') }}/dist/js/demo.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{ asset('AdminLTE') }}/dist/js/pages/dashboard.js"></script>
-
 </body>
 </html>

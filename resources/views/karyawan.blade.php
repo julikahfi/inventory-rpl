@@ -871,10 +871,28 @@
     <div class="card">
               <div class="card-header">
                 <h3 class="card-title">DataTable with default features</h3>
+                @if (session('success'))
+                <div class="alert alert-success">{{session('success')}}</div>
+              @endif
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4"><div class="row"><div class="col-sm-12 col-md-6"><div class="dt-buttons btn-group flex-wrap">               <button class="btn btn-secondary buttons-copy buttons-html5" tabindex="0" aria-controls="example1" type="button"><span>Copy</span></button> <button class="btn btn-secondary buttons-csv buttons-html5" tabindex="0" aria-controls="example1" type="button"><span>CSV</span></button> <button class="btn btn-secondary buttons-excel buttons-html5" tabindex="0" aria-controls="example1" type="button"><span>Excel</span></button> <button class="btn btn-secondary buttons-pdf buttons-html5" tabindex="0" aria-controls="example1" type="button"><span>PDF</span></button> <button class="btn btn-secondary buttons-print" tabindex="0" aria-controls="example1" type="button"><span>Print</span></button> <div class="btn-group"><button class="btn btn-secondary buttons-collection dropdown-toggle buttons-colvis" tabindex="0" aria-controls="example1" type="button" aria-haspopup="true"><span>Column visibility</span><span class="dt-down-arrow"></span></button></div> </div></div><div class="col-sm-12 col-md-6"><div id="example1_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control form-control-sm" placeholder="" aria-controls="example1"></label></div></div></div><div class="row"><div class="col-sm-12"><table id="example1" class="table table-bordered table-striped dataTable dtr-inline" aria-describedby="example1_info">
+                <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4"><div class="row">
+                  <div class="col-sm-12 col-md-6"><div class="dt-buttons btn-group flex-wrap">               
+                    <button class="btn btn-secondary buttons-copy buttons-html5" tabindex="0" aria-controls="example1" type="button"><span>Copy</span></button> <button class="btn btn-secondary buttons-csv buttons-html5" tabindex="0" aria-controls="example1" type="button"><span>CSV</span></button> 
+                    <button class="btn btn-secondary buttons-excel buttons-html5" tabindex="0" aria-controls="example1" type="button"><span>Excel</span></button> 
+                    <button class="btn btn-secondary buttons-pdf buttons-html5" tabindex="0" aria-controls="example1" type="button"><span>PDF</span></button> <button class="btn btn-secondary buttons-print" tabindex="0" aria-controls="example1" type="button"><span>Print</span></button> <div class="btn-group"><button class="btn btn-secondary buttons-collection dropdown-toggle buttons-colvis" tabindex="0" aria-controls="example1" type="button" aria-haspopup="true"><span>Column visibility</span><span class="dt-down-arrow"></span></button>
+                    
+                    </div> </div></div><div class="col-sm-12 col-md-6">
+                      <div id="example1_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control form-control-sm" placeholder="" aria-controls="example1"></label>
+                      
+                       <!--tombol tambah data -->
+                       
+                       <button data-target="#modal-default" data-toggle="modal" class="btn btn-secondary buttons-pdf buttons-html5" tabindex="0" aria-controls="example1" type="button"><span>Tambah Data</span></button>
+                <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-primary"> 
+                  Tambah Data
+                </button>-->
+                    </div></div></div><div class="row"><div class="col-sm-12"><table id="example1" class="table table-bordered table-striped dataTable dtr-inline" aria-describedby="example1_info">
                   <thead>
                   <tr>
                     <th class="sorting sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">ID Karyawan</th>
@@ -893,7 +911,19 @@
                     <td>{{$karyawan->jns_kelamin}}</td>
                     <td>{{$karyawan->alamat}}</td>
                     <td>{{$karyawan->no_hp}}</td>
-
+                    <td>
+                      <div class="btn-group">
+                        
+                        <button type="button" class="btn btn-info btn-flat">
+                        <i class="fas fa-edit"></i>
+                        </button>
+                        <button type="button" class="btn btn-danger btn-flat">
+                          
+                          <i class="far fa-trash-alt"></i>
+                        </button>
+                        
+                      </div>
+                    </td>
                   </tr>
                   @endforeach
                   </tbody>
@@ -911,7 +941,63 @@
               <!-- /.card-body -->
             </div>
 
+<!-- pop up untuk menambah data -->
+            
+<div class="modal fade" id="modal-default">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3 class="modal-title">MASUKAN DATA STATUS BARANG</h3>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <!--isi form-->
+              <form action="/karyawan" class="" method="post">
+                @csrf
+              <div class="form-group">
+                    <label for="exampleInputEmail1">ID Karyawan</label>
+                    <input type="text" name="id_karyawan" class="form-control" id="exampleInputEmail1" placeholder="Masukan ID Karyawan">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Nama</label>
+                    <input type="text" name="nama" class="form-control" id="exampleInputPassword1" placeholder="Masukan Nama Karyawan">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Jenis Kelamin</label>
+                    <select class="form-control" name="jns_kelamin">
+                          <option value="" hidden>--Masukan Jenis Kelamin--</option>
+                          <option value="L">Laki-Laki</option>
+                          <option value="P">Perempun</option>
+                          
+                        </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Alamat </label>
+                    <input type="text" name="alamat" class="form-control" id="exampleInputPassword1" placeholder="Masukan alamat karyawan">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Nomor Handphone</label>
+                    <input type="number" name="no_hp" class="form-control" id="exampleInputPassword1" placeholder="Masukan no hp">
+                  </div>
+                  <div class="form-group mb-0">
+                    
+                  </div>
+                
+                <!--/isi form-->
+            </div>
+            <div class="modal-footer justify-content-between">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">S i m p a n</button>
+              
+            </div>
+          </div>
+          </form>
+      
+<!-- /pop up untuk menambah data -->
 
+            
 <!-- jQuery -->
 <script src="{{ asset('AdminLTE') }}/plugins/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
@@ -946,5 +1032,7 @@
 <script src="{{ asset('AdminLTE') }}/dist/js/demo.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{ asset('AdminLTE') }}/dist/js/pages/dashboard.js"></script>
+
+
 </body>
 </html>

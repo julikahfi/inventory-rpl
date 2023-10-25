@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SasprasController;
 use App\Http\Controllers\karyawancontroller;
 use App\Http\Controllers\barangcontroller;
+use App\Http\Controllers\statusbarangcontroller;
 use App\Http\Controllers\transaksicontroller;
 
 /*
@@ -18,12 +19,14 @@ use App\Http\Controllers\transaksicontroller;
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('input_karyawan');
 });
 
 Route::get('/karyawan', [karyawancontroller::class,'karyawan']);
 Route::get('/barang', [barangcontroller::class,'barang']);
 Route::get('/transaksi', [transaksicontroller::class,'transaksi']);
+Route::get('/statusbarang', [statusbarangcontroller::class,'statusbarang']);
+Route::post('/karyawan', [karyawancontroller::class,'store']);
 
 
 
