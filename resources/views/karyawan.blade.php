@@ -887,7 +887,10 @@
                       <div id="example1_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control form-control-sm" placeholder="" aria-controls="example1"></label>
                       
                        <!--tombol tambah data -->
-                       
+                       <button type="button" class="btn btn-success toastrDefaultSuccess">
+                  Launch Success Toast
+                </button>
+
                        <button data-target="#modal-default" data-toggle="modal" class="btn btn-secondary buttons-pdf buttons-html5" tabindex="0" aria-controls="example1" type="button"><span>Tambah Data</span></button>
                 <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-primary"> 
                   Tambah Data
@@ -1032,7 +1035,20 @@
 <script src="{{ asset('AdminLTE') }}/dist/js/demo.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{ asset('AdminLTE') }}/dist/js/pages/dashboard.js"></script>
-
-
+<!-- Toastr -->
+<script src="{{ asset('AdminLTE') }}/plugins/toastr/toastr.min.js"></script>
+<script>
+  $(function() {
+    var Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000
+    });
+    $('.toastrDefaultSuccess').click(function() {
+      toastr.success('berhasil disimpan')
+    });
+  });
+</script>
 </body>
 </html>
