@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Dashboard</title>
+  <title>Karyawan | Dashboard</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -891,10 +891,11 @@
                   Launch Success Toast
                 </button>
 
-                       <button data-target="#modal-default" data-toggle="modal" class="btn btn-secondary buttons-pdf buttons-html5" tabindex="0" aria-controls="example1" type="button"><span>Tambah Data</span></button>
+                       <button data-target="#modal-tambahdata" data-toggle="modal" class="btn btn-secondary buttons-pdf buttons-html5" tabindex="0" aria-controls="example1" type="button"><span>Tambah Data</span></button>
                 <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-primary"> 
                   Tambah Data
                 </button>-->
+  
                     </div></div></div><div class="row"><div class="col-sm-12"><table id="example1" class="table table-bordered table-striped dataTable dtr-inline" aria-describedby="example1_info">
                   <thead>
                   <tr>
@@ -917,16 +918,66 @@
                     <td>
                       <div class="btn-group">
                         
-                        <button data-target="#modal-primary" type="button" class="btn btn-info btn-flat" data-toggle="modal">
+                        <button data-target="#modal-UpdateKaryawan{{$karyawan->id_karyawan}}" data-toggle="modal" tabindex="-1" type="button" class="btn btn-info btn-flat">
                         <i class="fas fa-edit"></i>
                         </button>
-                        <button type="button" class="btn btn-danger btn-flat"> 
-                          <i class="far fa-trash-alt"></i>
+                        <button> <a href="/karyawan/hapus/{{$karyawan->id_karyawan}}" onclick="return confirm('Apakah Anda Yakin Menghapus Data?');" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                         </button>
                         
-                      </div>
+                      </div> 
                     </td>
                   </tr>
+ <!-- pop up untuk tampil edit data -->
+ <div class="modal fade" id="modal-UpdateKaryawan{{$karyawan->id_karyawan}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3 class="modal-title">EDIT DATA KARYAWAN</h3>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <!--isi form-->
+              <form action="karyawan/storeupdate" class="" method="post">
+                @method('put')
+                @csrf
+              <div class="form-group">
+                    <label for="exampleInputEmail1">ID Karyawan</label>
+                    <input type="text" name="id_karyawan" class="form-control" id="id" readonly value="{{ $karyawan->id_karyawan }}">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Nama</label>
+                    <input type="text" name="nama" value="{{ $karyawan->nama }}" class="form-control" id="id">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Jenis Kelamin</label>
+                    <input type="text" name="jns_kelamin" value="{{ $karyawan->jns_kelamin}}" class="form-control" id="id">
+                  </div>
+                  
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Alamat </label>
+                    <input type="text" name="alamat" value="{{ $karyawan->alamat }}" class="form-control" id="id" placeholder="Masukan alamat karyawan">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Nomor Handphone</label>
+                    <input type="number" name="no_hp" value="{{ $karyawan->no_hp }}" class="form-control" id="id" placeholder="Masukan no hp">
+                  </div>
+                  <div class="form-group mb-0">
+                    
+                  </div>
+                
+                <!--/isi form-->
+            </div>
+            <div class="modal-footer justify-content-between">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Simpan Update</button>
+              
+            </div>
+          </div>
+          </form>
+  <!-- /pop up untuk tampil edit data -->
+
                   @endforeach
                   </tbody>
                   <tfoot>
@@ -944,7 +995,7 @@
             </div>
 <!-- pop up untuk menambah data -->
             
-<div class="modal fade" id="modal-default">
+<div class="modal fade" id="modal-tambahdata">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -969,8 +1020,8 @@
                     <label for="exampleInputPassword1">Jenis Kelamin</label>
                     <select class="form-control" name="jns_kelamin">
                           <option value="" hidden>--Masukan Jenis Kelamin--</option>
-                          <option value="L">Laki-Laki</option>
-                          <option value="P">Perempun</option>
+                          <option value="Laki-laki">Laki-Laki</option>
+                          <option value="Perempuan">Perempun</option>
                           
                         </select>
                   </div>
@@ -998,25 +1049,8 @@
       
 <!-- /pop up untuk menambah data -->
 
- <!-- pop up untuk mengedit data -->
- <div class="modal fade" id="modal-primary">
-        <div class="modal-dialog">
-          <div class="modal-content bg-primary">
-            <div class="modal-header">
-              <h4 class="modal-title">Primary Modal</h4>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <p>One fine body&hellip;</p>
-            </div>
-            <div class="modal-footer justify-content-between">
-              <button type="button" class="btn btn-outline-light" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-outline-light">Save changes</button>
-            </div>
-          </div>
-  <!-- /pop up untuk mengedit data -->
+
+
 
 <!-- jQuery -->
 <script src="{{ asset('AdminLTE') }}/plugins/jquery/jquery.min.js"></script>

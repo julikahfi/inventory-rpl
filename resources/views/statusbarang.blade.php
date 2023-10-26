@@ -913,17 +913,65 @@
                     <td>
                       <div class="btn-group">
                         
-                        <button type="button" class="btn btn-info btn-flat">
+                      <button data-target="#modal-Update{{$statusbarang->id_status}}" data-toggle="modal" tabindex="-1" type="button" class="btn btn-info btn-flat">
                         <i class="fas fa-edit"></i>
                         </button>
-                        <button type="button" class="btn btn-danger btn-flat">
-                          
-                          <i class="far fa-trash-alt"></i>
+                        
+                        <button> <a href="/statusbarang/hapus/{{$statusbarang->id_status}}" onclick="return confirm('Apakah Anda Yakin Menghapus Data?');" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                         </button>
                         
                       </div>
                     </td>
                   </tr>
+                   <!-- pop up untuk tampil edit data -->
+                   <div class="modal fade" id="modal-Update{{$statusbarang->id_status}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3 class="modal-title">EDIT DATA STATUS BARANG</h3>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <!--isi form-->
+              <form action="statusbarang/storeupdate" class="" method="post">
+                @csrf
+                <div class="form-group">
+                    <label for="exampleInputEmail1">ID Status</label>
+                    <input type="text" name="id_status" readonly value="{{ $statusbarang->id_status}}" class="form-control" id="exampleInputEmail1" placeholder="Masukan ID Status">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">ID Barang</label>
+                    <input type="text" name="id_barang" value="{{ $statusbarang->id_barang}}" class="form-control" id="exampleInputPassword1" placeholder="Masukan ID Barang">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Jumlah Barang Bagus</label>
+                    <input type="number" name="jml_bagus" value="{{ $statusbarang->jml_bagus}}" class="form-control" id="exampleInputPassword1" placeholder="Masukan jumlah barang bagus">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Jumlah Barang Rusak Ringan</label>
+                    <input type="number" name="jml_rusak_ringan" value="{{ $statusbarang->jml_rusak_ringan}}" class="form-control" id="exampleInputPassword1" placeholder="Masukan jumlah barang rusak ringan">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Jumlah Barang Rusak Berat</label>
+                    <input type="number" name="jml_rusak_berat" value="{{ $statusbarang->jml_rusak_berat}}" class="form-control" id="exampleInputPassword1" placeholder="Masukan jumlah barang rusak berat">
+                  </div>
+                  <div class="form-group mb-0">
+                    
+                  </div>                
+                <!--/isi form-->
+            </div>
+            <div class="modal-footer justify-content-between">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Simpan Update</button>
+              
+            </div>
+          </div>
+          </form>
+  <!-- /pop up untuk tampil edit data -->
+
+
                   @endforeach
                   </tbody>
                   <tfoot>

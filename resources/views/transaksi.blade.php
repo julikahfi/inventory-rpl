@@ -915,18 +915,101 @@
                     <td>
                       <div class="btn-group">
                         
-                        <button type="button" class="btn btn-info btn-flat">
+                      <button data-target="#modal-UpdateTransaksi{{$transaksi->id}}" data-toggle="modal" tabindex="-1" type="button" class="btn btn-info btn-flat">
                         <i class="fas fa-edit"></i>
                         </button>
-                        <button type="button" class="btn btn-danger btn-flat">
-                          
-                          <i class="far fa-trash-alt"></i>
+                        
+                        <button> <a href="/transaksi/hapus/{{$transaksi->id}}" onclick="return confirm('Apakah Anda Yakin Menghapus Data?');" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                         </button>
                         
                       </div>
                     </td>
 
                   </tr>
+
+ <!-- pop up untuk tampil edit data -->
+ <div class="modal fade" id="modal-UpdateTransaksi{{$transaksi->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3 class="modal-title">EDIT DATA TRANSAKSI</h3>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <!--isi form-->
+              <form action="transaksi/storeupdate" class="" method="post">
+                @csrf
+                <div class="form-group">
+                    <label for="exampleInputEmail1">ID Transaksi</label>
+                    <input type="text" name="id_transaksi" value="{{ $transaksi->id_transaksi}}" readonly class="form-control" id="exampleInputEmail1" placeholder="Masukan ID Transaksi">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Tanggal Transaksi</label>
+                    <input type="date" name="tanggal_transaksi" value="{{ $transaksi->tanggal_transaksi}}" class="form-control" id="exampleInputPassword1" placeholder="Masukan tanggal transaksi">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Jenis Transaksi</label>
+                    <input type="text" name="jenis_transaksi" value="{{ $transaksi->jenis_transaksi}}" class="form-control" id="exampleInputPassword1">
+                    
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">ID Barang</label>
+                    <input type="text" name="id_barang" value="{{ $transaksi->id_barang}}" class="form-control" id="exampleInputPassword1" placeholder="Masukan ID Barang">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Jumlah</label>
+                    <input type="number" name="jumlah" value="{{ $transaksi->jumlah}}" class="form-control" id="exampleInputPassword1" placeholder="Masukan jumlah">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">ID Karyawan</label>
+                    <input type="text" name="id_karyawan" value="{{ $transaksi->id_karyawan}}" class="form-control" id="exampleInputPassword1" placeholder="Masukan ID Karyawan">
+                  </div>
+
+                  <div class="form-group mb-0">
+                    
+                  </div>
+                
+                <!--/isi form-->
+            </div>
+            <div class="modal-footer justify-content-between">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Simpan Update</button>
+              
+            </div>
+          </div>
+          </form>
+  <!-- /pop up untuk tampil edit data -->
+
+  
+        <!-- Ini tampil form delete produk -->
+        <div class="modal fade" id="Modal-Delete{{$transaksi->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Hapus Transaksi</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/transaksi/hapus/{{$transaksi->id}}" method="get" class="form-floating">
+                            @csrf
+                            <div>
+                                <h3>Yakin mau menghapus data <b>{{$transaksi->id_transaksi}}</b> ?</h3>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                <button type="submit" class="btn btn-primary">Yes</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
                   @endforeach
                   </tbody>
                   <tfoot>

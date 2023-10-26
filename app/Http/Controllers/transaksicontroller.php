@@ -28,4 +28,12 @@ class transaksicontroller extends Controller
         return redirect()->back();
     }
 
+    public function hapus($id)
+    {
+        $transaksi = Transaksis::where('id', $id)
+              ->delete();
+
+        return redirect('/transaksi');
+
+    }
 }
