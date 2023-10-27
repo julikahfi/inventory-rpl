@@ -59,4 +59,15 @@ class karyawancontroller extends Controller
         // alihkan halaman ke halaman produk
         return redirect('/karyawan');
     }
+
+    public function cari(Request $request){
+        if($request->has('cari')){
+            $karyawan = Karyawan::where('nama','Like','%'.$request->cari.'%')
+                    ->get();
+        }
+        else {
+            $karyawan = Karyawan::all();
+        }
+        return view('/karyawan',['karyawan'=>$karyawan]);
+        }
 }

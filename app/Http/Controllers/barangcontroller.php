@@ -63,5 +63,15 @@ class barangcontroller extends Controller
         return redirect('/barang');
     }
 
+    public function cari(Request $request){
+        if($request->has('cari')){
+            $barang = Barang::where('nama_barang','like','%'.$request->cari.'%')
+                    ->get();
+        }
+        else {
+            $barang = Barang::all();
+        }
+        return view('/barang',['barang'=>$barang]);
+    }
 
-}
+    }
